@@ -1,0 +1,7 @@
+arr = list(map(int,input().split()))
+lar = arr[0]
+n = len(arr)
+for i in range(0,n):
+    if arr[i]>lar:
+        lar = arr[i]
+print(lar)
