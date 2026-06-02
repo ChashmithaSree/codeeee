@@ -1,13 +1,14 @@
 arr = [3, 7, 1, 9, 4]
 
-# Method 1: Reverse range time :O(n),space : O(1)
+⫸ Method 1: Reverse range time :O(n),space : O(1)
 for i in range(len(arr) - 1, -1, -1):
     print(arr[i])           # 4, 9, 1, 7, 3
 
-# Method 2: Negative step (creates new list!) //time complexity : O(n),space = O(n)
+ ⫸ Method 2: Negative step (creates new list!) //time complexity : O(n),space = O(n)
 for num in arr[::-1]:
     print(num)
-#Method 3: Two Pointers //inplace traversal ,time:O(n/2) = O(n),space : O(1) (no extra list is created means no extra space).
+
+⫸ Method 3: Two Pointers //inplace traversal ,time:O(n/2) = O(n),space : O(1) (no extra list is created means no extra space).
 arr = [3, 7, 1, 9, 4]
 
 left = 0
@@ -20,3 +21,11 @@ while left < right:
     right -= 1
 
 print(arr)
+
+⟪PARTIAL TRAVERSAL⟫
+
+⫸ arr = [1, 2, 3, 4, 5, 6]
+
+# Reverse only indices 2 to 4
+reverse(arr, 2, 4)
+# arr = [1, 2, 5, 4, 3, 6]
