@@ -1,0 +1,57 @@
+⫸ Right Rotation by k
+
+Step 1: Reverse the ENTIRE array
+Step 2: Reverse the FIRST k elements
+Step 3: Reverse the REMAINING n-k elements
+Let's trace it with arr = [1, 2, 3, 4, 5], k = 2:
+
+Original:    [1, 2, 3, 4, 5]
+
+Step 1 - Reverse all:
+             [5, 4, 3, 2, 1]
+              ↑↑↑↑  ↑↑↑↑↑↑↑
+            first k  rest
+
+Step 2 - Reverse first k=2:
+             [4, 5, 3, 2, 1]
+
+Step 3 - Reverse last n-k=3:
+             [4, 5, 1, 2, 3]  
+
+def rotate_right(arr, k):
+    n = len(arr)
+    k = k % n  # ALWAYS handle k > n!
+
+    def reverse(left, right):
+        while left < right:
+            arr[left], arr[right] = arr[right], arr[left]
+            left += 1
+            right -= 1
+
+    reverse(0, n - 1)      # Step 1: Reverse all
+    reverse(0, k - 1)      # Step 2: Reverse first k
+    reverse(k, n - 1)      # Step 3: Reverse rest
+
+⫸ Left Rotation by k
+
+Left rotation by k = Right rotation by (n - k):
+
+⫸ Method 1:
+def rotate_left(arr, k):
+    n = len(arr)
+    rotate_right(arr, n - k)
+
+⫸ Method 2:
+def rotate_left(arr, k):
+    n = len(arr)
+    k = k % n
+
+    def reverse(left, right):
+        while left < right:
+            arr[left], arr[right] = arr[right], arr[left]
+            left += 1
+            right -= 1
+
+    reverse(0, k - 1)      # Step 1: Reverse first k
+    reverse(k, n - 1)      # Step 2: Reverse rest
+    reverse(0, n - 1)      # Step 3: Reverse all
