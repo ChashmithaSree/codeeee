@@ -1,0 +1,22 @@
+arr = [3, 7, 1, 9, 4]
+
+# Method 1: Reverse range time :O(n),space : O(1)
+for i in range(len(arr) - 1, -1, -1):
+    print(arr[i])           # 4, 9, 1, 7, 3
+
+# Method 2: Negative step (creates new list!) //time complexity : O(n),space = O(n)
+for num in arr[::-1]:
+    print(num)
+#Method 3: Two Pointers //inplace traversal ,time:O(n/2) = O(n),space : O(1) (no extra list is created means no extra space).
+arr = [3, 7, 1, 9, 4]
+
+left = 0
+right = len(arr) - 1
+
+while left < right:
+    arr[left], arr[right] = arr[right], arr[left]
+
+    left += 1
+    right -= 1
+
+print(arr)
